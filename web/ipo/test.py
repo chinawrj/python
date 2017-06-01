@@ -2,11 +2,11 @@
 import requests
 from bs4 import BeautifulSoup
 
-response = requests.get('http://ipo.csrc.gov.cn/infoBlock.action?pageNo=1&temp=&temp1=&blockId=1&block=1&blockType=byBlock')
+response = requests.get('http://ipo.csrc.gov.cn/infoByFileType.action?pageNo=1&temp=&fileType=1&flag=single&blockType=prepare')
 soup = BeautifulSoup(response.text, "html.parser")
 
 tableHeader = soup.find("tr", attrs={"class":"fontWeight"})
-tableItems = soup.find_all("tr", attrs={"class":"timeborder"})
+tableItems = soup.find_all("tr", attrs={"class":"typeborder"})
 
 headings = [th.get_text().strip() for th in tableHeader.find_all("td")]
 datasets = []
