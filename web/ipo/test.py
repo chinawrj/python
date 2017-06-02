@@ -19,8 +19,8 @@ print("总页数:",  totalPageCount)
 
 totalFooter.span.decompose() #remove span
 totalCountContainer = "".join(totalFooter.get_text().split())
-totalCount = re.findall("(\d+)条记录", totalCountContainer)
-print("总数目:",  totalCount)
+totalItemCount = re.findall("(\d+)条记录", totalCountContainer)
+print("总数目:",  totalItemCount)
 
 headings = [th.get_text().strip() for th in tableHeader.find_all("td")]
 datasets = []
